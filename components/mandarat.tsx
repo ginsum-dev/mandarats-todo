@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import DesktopCard from "./custom/mandarat/DesktopCard";
+import MobileCard from "./custom/mandarat/MobileCard";
 
 interface MandaratData {
   [key: string]: string;
@@ -13,6 +15,16 @@ export default function Mandarat() {
   const [data, setData] = useState<MandaratData>({});
   const [isClient, setIsClient] = useState(false);
   const [focusedBox, setFocusedBox] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     setIsClient(true);
@@ -86,31 +98,6 @@ export default function Mandarat() {
     );
   };
 
-  // Pastel colors for cards
-  const cardColors = [
-    "bg-red-100 border-red-200", // Card 0
-    "bg-orange-100 border-orange-200", // Card 1
-    "bg-yellow-100 border-yellow-200", // Card 2
-    "bg-purple-100 border-purple-200", // Card 3
-    "bg-white border-stone-100", // Card 4 (center - main goal)
-    "bg-lime-100 border-lime-200", // Card 5
-    "bg-indigo-100 border-indigo-200", // Card 6
-    "bg-sky-100 border-sky-200", // Card 7
-    "bg-emerald-100 border-emerald-200", // Card 8
-  ];
-
-  const boxColors = [
-    "bg-red-200 border-red-300", // Box 0
-    "bg-orange-200 border-orange-300", // Box 1
-    "bg-yellow-200 border-yellow-300", // Box 2
-    "bg-purple-200 border-purple-300", // Box 3
-    "bg-white border-stone-300", // Box 4
-    "bg-lime-200 border-lime-300", // Box 5
-    "bg-indigo-200 border-indigo-300", // Box 6
-    "bg-sky-200 border-sky-300", // Box 7
-    "bg-emerald-200 border-emerald-300", // Box 8
-  ];
-
   if (!isClient) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -122,105 +109,28 @@ export default function Mandarat() {
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-stone-50 via-stone-100 to-stone-200 py-4 sm:py-8 px-2 sm:px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8 text-foreground">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center my-10 text-foreground">
           Mandarat Planner
         </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-1.5 justify-items-center">
-          {cardPositions.map((pos, cardIndex) => (
-            <div
-              key={cardIndex}
-              className={cn(
-                "w-full max-w-[280px] sm:max-w-[300px] aspect-square rounded-md border-2 p-1.5 shadow-sm transition-all hover:shadow-md",
-                cardColors[cardIndex]
-              )}
-            >
-              <div className="grid grid-cols-3 gap-0.5 sm:gap-1 h-full">
-                {Array.from({ length: 9 }).map((_, boxIndex) => {
-                  const isCenter = cardIndex === 4;
-                  const isBoxCenter = boxIndex === 4;
-                  const key = `${cardIndex}-${boxIndex}`;
-                  const isFocused = focusedBox === key;
+        {isMobile ? (
+          <div className="grid grid-cols-1 gap-1.5 justify-items-center">
+            <MobileCard getValue={getValue} />
+          </div>
+        ) : (
+          <div className="grid grid-cols-3 gap-1.5 justify-items-center">
+            {cardPositions.map((pos, cardIndex) => (
+              <DesktopCard
+                key={cardIndex}
+                cardIndex={cardIndex}
+                focusedBox={focusedBox}
+                getValue={getValue}
+                setFocusedBox={setFocusedBox}
+                handleChange={handleChange}
+              />
+            ))}
+          </div>
+        )}
 
-                  const value = getValue(cardIndex, boxIndex);
-
-                  const isEditable = !(!isCenter && isBoxCenter);
-
-                  return (
-                    <div
-                      key={boxIndex}
-                      className="relative w-full h-full"
-                      onClick={() => {
-                        if (isEditable) {
-                          setFocusedBox(key);
-                        }
-                      }}
-                    >
-                      {isFocused && isEditable ? (
-                        <textarea
-                          value={value}
-                          onChange={(e) => handleChange(key, e.target.value)}
-                          onBlur={() => setFocusedBox(null)}
-                          autoFocus
-                          className={cn(
-                            "w-[88px] h-[88px] resize-none rounded border transition-all",
-                            "focus:outline-none focus:ring-2 focus:ring-primary/50",
-                            "text-center",
-                            "scrollbar-hide",
-                            isBoxCenter ? boxColors[cardIndex] : "",
-                            isCenter
-                              ? `${boxColors[boxIndex]} text-[20px]`
-                              : "text-[16px]",
-                            "placeholder:text-gray-400 placeholder:text-center"
-                          )}
-                          style={{
-                            textAlign: "center",
-                            paddingTop: "calc(50% - 0.75em)",
-                            paddingBottom: "calc(50% - 0.75em)",
-                            paddingLeft: "4px",
-                            paddingRight: "4px",
-                            lineHeight: "1.5",
-                            display: "block",
-                            boxSizing: "border-box",
-                            scrollbarWidth: "none",
-                            msOverflowStyle: "none",
-                          }}
-                        />
-                      ) : (
-                        <div
-                          className={cn(
-                            "w-[88px] h-[88px] rounded border transition-all",
-                            "text-center bg-white overflow-hidden",
-                            "flex items-center justify-center px-1",
-                            isEditable ? "cursor-text" : "cursor-default",
-                            isBoxCenter ? boxColors[cardIndex] : "",
-                            isCenter ? `${boxColors[boxIndex]}` : ""
-                          )}
-                        >
-                          <span
-                            className={cn(
-                              isCenter ? "text-[20px]" : "text-[16px]",
-                              "w-full text-center"
-                            )}
-                            style={{
-                              display: "-webkit-box",
-                              WebkitLineClamp: isCenter ? 2 : 3,
-                              WebkitBoxOrient: "vertical",
-                              overflow: "hidden",
-                              textOverflow: "ellipsis",
-                              lineHeight: "1.5",
-                            }}
-                          >
-                            {value}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
-        </div>
         <p className="text-center text-sm text-muted-foreground mt-6 sm:mt-8">
           All changes are automatically saved to your browser
         </p>
