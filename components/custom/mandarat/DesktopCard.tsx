@@ -18,7 +18,7 @@ export default function DesktopCard({
     <div
       key={cardIndex}
       className={cn(
-        "w-full max-w-[286px] aspect-square rounded-md border-2 p-1.5 shadow-sm transition-all hover:shadow-md",
+        "w-full max-w-[294px] aspect-square rounded-md border-2 p-1.5 shadow-sm transition-all hover:shadow-md",
         cardColors[cardIndex]
       )}
     >

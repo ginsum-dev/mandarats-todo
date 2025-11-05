@@ -50,6 +50,12 @@ export default function Mandarat() {
       const targetKey = `${targetCardIndex}-4`;
       newData[targetKey] = value;
     }
+    if (isMobile && boxIndex === 4) {
+      // 모바일 화면에서 중앙 박스가 변경되면 모든 카드의 중앙 박스도 동기화
+      const targetCardIndex = cardIndex;
+      const targetKey = `4-${targetCardIndex}`;
+      newData[targetKey] = value;
+    }
 
     setData(newData);
     // Save to localStorage
@@ -113,8 +119,8 @@ export default function Mandarat() {
           Mandarat Planner
         </h1>
         {isMobile ? (
-          <div className="grid grid-cols-1 gap-1.5 justify-items-center">
-            <MobileCard getValue={getValue} />
+          <div className="grid grid-cols-1 gap-1 justify-items-center">
+            <MobileCard getValue={getValue} handleChange={handleChange} />
           </div>
         ) : (
           <div className="grid grid-cols-3 gap-1.5 justify-items-center">
