@@ -77,11 +77,22 @@ export default function Mandarat() {
   }
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-stone-50 via-stone-100 to-stone-200 py-4 sm:py-8 px-2 sm:px-4">
+    <div className="w-full min-h-screen bg-gradient-to-br from-stone-50 via-stone-100 to-stone-200 py-10 sm:py-10 px-2 sm:px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold text-center my-10 text-foreground">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mt-8 text-foreground">
           My Manda
         </h1>
+        <div className="flex-col items-center justify-center p-5 text-center mb-6">
+          <p className="text-sm text-zinc-500 mb-1">
+            1. 중앙에 핵심 목표를 적으세요.
+          </p>
+          <p className="text-sm text-zinc-500 mb-1">
+            2. 주변 8칸에 목표 달성을 위한 하위 목표를 작성하세요.
+          </p>
+          <p className="text-sm text-zinc-500">
+            3. 각 하위 목표를 펼쳐 구체적인 실행 과제 8개씩 채워보세요.
+          </p>
+        </div>
         {isMobile ? (
           <div className="grid grid-cols-1 gap-1 justify-items-center">
             <MobileCard getValue={getValue} handleChange={handleChange} />
@@ -100,9 +111,6 @@ export default function Mandarat() {
             ))}
           </div>
         )}
-        <p className="text-center text-sm text-muted-foreground mt-6 sm:mt-8">
-          All changes are automatically saved to your browser
-        </p>
       </div>
     </div>
   );

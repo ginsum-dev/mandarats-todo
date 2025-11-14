@@ -14,22 +14,22 @@ export default function Support() {
         {/* Contact Information */}
         <div className="bg-gray-100 rounded-xl px-6 py-4 mb-6">
           <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-            <Mail className="w-6 h-6 text-indigo-600" />
+            <Mail className="w-6 h-6 text-rose-400" />
             연락처 정보
           </h3>
 
           <div className="space-y-6">
-            <div className="border-l-4 border-indigo-600 pl-4">
+            <div className="border-l-4 border-rose-400 pl-4">
               <p className="text-sm text-gray-600 mb-1">이메일</p>
               <a
                 href="mailto:jennyjung.dev@gmail.com"
-                className="text-lg font-semibold text-indigo-600 hover:text-indigo-700"
+                className="text-lg font-semibold text-rose-400 hover:text-rose-500"
               >
                 jennyjung.dev@gmail.com
               </a>
             </div>
 
-            <div className="border-l-4 border-indigo-600 pl-4">
+            {/* <div className="border-l-4 border-rose-400 pl-4">
               <p className="text-sm text-gray-600 mb-1">운영 시간</p>
               <p className="text-lg font-semibold text-gray-900">
                 평일 오전 9시 - 오후 6시 (주말 및 공휴일 제외)
@@ -37,7 +37,7 @@ export default function Support() {
               <p className="text-sm text-gray-500 mt-1">
                 * 영업일 기준 1-2일 내 답변드립니다
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
 

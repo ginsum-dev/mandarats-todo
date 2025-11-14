@@ -49,7 +49,12 @@ export default function EditDrawer({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button>Edit</Button>
+        <Button
+          className="text-rose-400 hover:text-rose-500 hover:bg-rose-50"
+          variant="outline"
+        >
+          Edit
+        </Button>
       </DrawerTrigger>
       <DrawerContent className="max-h-[90vh]">
         <DrawerHeader>
@@ -87,7 +92,7 @@ export default function EditDrawer({
                       }}
                       placeholder={`내용을 입력하세요`}
                       className={cn(
-                        "w-full h-[40px] focus:outline-none focus-visible:ring-0 rounded-none",
+                        "w-full h-[40px] focus:outline-none focus-visible:ring-0 rounded-sm",
                         isCenter &&
                           `${boxColors[cardIndex]} font-semibold text-lg h-[60px]`
                       )}
@@ -99,7 +104,7 @@ export default function EditDrawer({
           </div>
         </div>
         <DrawerFooter>
-          <Button className="w-full" onClick={() => setOpen(false)}>
+          <Button className="w-full " onClick={() => setOpen(false)}>
             닫기
           </Button>
         </DrawerFooter>
