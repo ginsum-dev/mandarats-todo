@@ -80,7 +80,7 @@ export default function Mandarat() {
     <div className="w-full min-h-screen bg-gradient-to-br from-stone-50 via-stone-100 to-stone-200 py-4 sm:py-8 px-2 sm:px-4">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl sm:text-4xl font-bold text-center my-10 text-foreground">
-          Mandarat Planner
+          My Manda
         </h1>
         {isMobile ? (
           <div className="grid grid-cols-1 gap-1 justify-items-center">
