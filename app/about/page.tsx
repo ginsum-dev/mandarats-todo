@@ -64,14 +64,14 @@ export default function AboutPage() {
             <div>
               <p className="inline-flex items-center gap-2 rounded-full bg-rose-100/80 px-4 py-1 text-sm font-semibold text-rose-500">
                 <Sparkles className="h-4 w-4" />
-                MyManda is crafted for intentional goals
+                MandaPlan is crafted for intentional goals
               </p>
               <h1 className="mt-5 text-3xl font-bold text-gray-900 md:text-4xl">
                 만다라트로 <br />
                 목표를 구조화하세요.
               </h1>
               <p className="mt-3 text-md leading-7 text-gray-600">
-                MyManda는 전통 만다라트를 디지털 경험으로 재해석해, 생각을
+                MandaPlan은 전통 만다라트를 디지털 경험으로 재해석해, 생각을
                 정리하고 실행으로 연결하도록 돕는 목표 설계 도구입니다.
               </p>
             </div>
@@ -114,13 +114,13 @@ export default function AboutPage() {
           <article className="rounded-3xl border border-zinc-200 bg-gradient-to-br from-rose-50 to-white p-8 shadow-sm">
             <h3 className="mb-4 flex items-center gap-2 text-xl font-bold text-gray-900">
               <Sparkles className="h-5 w-5 text-rose-400" />
-              MyManda의 방향
+              MandaPlan의 방향
             </h3>
             <p className="text-base leading-7 text-zinc-600">
               우리는 “기록 → 구조화 → 실행”으로 이어지는 흐름이 가장 자연스러울
-              때 목표가 더 빨리 완성된다고 믿어요. 그래서 MyManda는 복잡한 UI를
-              최소화하고, 마치 종이에 쓰듯 빠르게 채워 넣고, 수정하고, 공유할 수
-              있는 경험에 집중하고 있습니다.
+              때 목표가 더 빨리 완성된다고 믿어요. 그래서 MandaPlan는 복잡한
+              UI를 최소화하고, 마치 종이에 쓰듯 빠르게 채워 넣고, 수정하고,
+              공유할 수 있는 경험에 집중하고 있습니다.
             </p>
           </article>
         </section>

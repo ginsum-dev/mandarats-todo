@@ -6,8 +6,8 @@ import { Header } from "@/components/custom/layout/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "MyManda",
-  description: "Create and manage your goals with MyManda",
+  title: "MandaPlan",
+  description: "Create and manage your goals with MandaPlan",
 };
 
 export default function RootLayout({

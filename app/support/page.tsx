@@ -72,7 +72,7 @@ export default function Support() {
         </form> */}
 
         <p className="mt-10 text-gray-500 text-sm">
-          개발자: Jung Hae Kyoung © 2025 MyManda. All rights reserved.
+          개발자: Jung Hae Kyoung © 2025 MandaPlan. All rights reserved.
         </p>
       </div>
     </div>
