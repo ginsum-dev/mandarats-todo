@@ -1,4 +1,5 @@
-import { Mail, MessageSquare, Clock, HelpCircle } from "lucide-react";
+import { Mail } from "lucide-react";
+import Link from "next/link";
 
 export default function Support() {
   return (
@@ -70,6 +71,14 @@ export default function Support() {
             피드백 보내기
           </button>
         </form> */}
+        <div className="">
+          <Link
+            href="/privacy"
+            className="text-gray-600 hover:text-gray-700 underline"
+          >
+            개인정보처리방침
+          </Link>
+        </div>
 
         <p className="mt-10 text-gray-500 text-sm">
           개발자: Jung Hae Kyoung © 2025 MandaPlan. All rights reserved.
