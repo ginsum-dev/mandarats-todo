@@ -80,7 +80,7 @@ export default function Mandarat() {
     <div className="w-full min-h-screen bg-gradient-to-br from-stone-50 via-stone-100 to-stone-200 py-10 sm:py-10 px-2 sm:px-4">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl sm:text-4xl font-bold text-center mt-8 text-foreground">
-          My Manda
+          MandaPlan
         </h1>
         <div className="flex-col items-center justify-center p-5 text-center mb-6">
           <p className="text-sm text-zinc-500 mb-1">
