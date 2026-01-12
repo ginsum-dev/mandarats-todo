@@ -5,14 +5,18 @@ export default function DesktopCard({
   cardIndex,
   focusedBox,
   getValue,
+  getIsComplete,
   setFocusedBox,
   handleChange,
+  handleToggleComplete,
 }: {
   cardIndex: number;
   focusedBox: string | null;
   getValue: (cardIndex: number, boxIndex: number) => string;
+  getIsComplete: (cardIndex: number, boxIndex: number) => boolean;
   setFocusedBox: (key: string | null) => void;
   handleChange: (key: string, value: string) => void;
+  handleToggleComplete: (key: string) => void;
 }) {
   return (
     <div

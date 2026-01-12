@@ -6,10 +6,14 @@ import EditDrawer from "./EditDrawer";
 
 export default function MobileCard({
   getValue,
+  getIsComplete,
   handleChange,
+  handleToggleComplete,
 }: {
   getValue: (cardIndex: number, boxIndex: number) => string;
+  getIsComplete: (cardIndex: number, boxIndex: number) => boolean;
   handleChange: (key: string, value: string) => void;
+  handleToggleComplete: (key: string) => void;
 }) {
   const [cardIndex, setCardIndex] = useState(4);
   const [openEditDrawer, setOpenEditDrawer] = useState(false);
@@ -85,7 +89,9 @@ export default function MobileCard({
             setOpen={setOpenEditDrawer}
             cardIndex={cardIndex}
             getValue={getValue}
+            getIsComplete={getIsComplete}
             handleChange={handleChange}
+            handleToggleComplete={handleToggleComplete}
           />
           <Button onClick={() => setCardIndex(4)}>중앙 카드로 돌아가기</Button>
         </div>
@@ -96,7 +102,9 @@ export default function MobileCard({
             setOpen={setOpenEditDrawer}
             cardIndex={cardIndex}
             getValue={getValue}
+            getIsComplete={getIsComplete}
             handleChange={handleChange}
+            handleToggleComplete={handleToggleComplete}
           />
         </div>
       )}

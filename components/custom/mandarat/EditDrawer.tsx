@@ -19,7 +19,9 @@ interface EditDrawerProps {
   setOpen: (open: boolean) => void;
   cardIndex: number;
   getValue: (cardIndex: number, boxIndex: number) => string;
+  getIsComplete: (cardIndex: number, boxIndex: number) => boolean;
   handleChange: (key: string, value: string) => void;
+  handleToggleComplete: (key: string) => void;
 }
 
 export default function EditDrawer({
@@ -27,7 +29,9 @@ export default function EditDrawer({
   setOpen,
   cardIndex,
   getValue,
+  getIsComplete,
   handleChange,
+  handleToggleComplete,
 }: EditDrawerProps) {
   const [values, setValues] = useState<{ [key: number]: string }>({});
 
