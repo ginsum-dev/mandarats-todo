@@ -1,5 +1,26 @@
 import { Mail } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "지원 및 문의 - MandaPlan",
+  description:
+    "MandaPlan 사용 중 문제가 발생하거나 궁금한 점이 있으시면 언제든지 연락해 주세요. 이메일로 문의하실 수 있습니다.",
+  keywords: [
+    "MandaPlan 문의",
+    "만다라트 앱 지원",
+    "목표 관리 앱 고객지원",
+    "MandaPlan 도움말",
+  ],
+  openGraph: {
+    title: "지원 및 문의 - MandaPlan",
+    description: "MandaPlan 사용 중 문제나 문의사항이 있으시면 연락해 주세요.",
+    url: "/support",
+  },
+  alternates: {
+    canonical: "/support",
+  },
+};
 
 export default function Support() {
   return (

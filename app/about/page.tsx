@@ -7,6 +7,7 @@ import {
   SquarePen,
   BookmarkCheck,
 } from "lucide-react";
+import type { Metadata } from "next";
 
 const usageSteps = [
   {
@@ -54,6 +55,32 @@ const features = [
       "모든 카드를 한 번에 볼 수 있어요. 중앙 목표와 주변 목표를 쉽게 파악할 수 있어요.",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "만다라트란? - MandaPlan 소개",
+  description:
+    "만다라트(Mandal-Art)는 목표 달성 및 아이디어 발상 도구입니다. MandaPlan은 전통 만다라트를 디지털 경험으로 재해석한 목표 설계 도구입니다. 사용 방법과 주요 기능을 확인하세요.",
+  keywords: [
+    "만다라트",
+    "Mandal-Art",
+    "목표관리",
+    "목표 설정",
+    "계획",
+    "자기계발",
+    "만다라트 사용법",
+    "목표 달성",
+    "productivity",
+  ],
+  openGraph: {
+    title: "만다라트란? - MandaPlan 소개",
+    description:
+      "만다라트로 목표를 구조화하는 방법을 알아보세요. MandaPlan의 사용법과 주요 기능을 확인하세요.",
+    url: "/about",
+  },
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 export default function AboutPage() {
   return (
