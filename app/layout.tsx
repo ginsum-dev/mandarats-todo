@@ -7,7 +7,9 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://mandaplan.app"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://mandaplan.vercel.app"
+  ),
   title: {
     default: "MandaPlan - 만다라트로 목표를 구조화하세요",
     template: "%s | MandaPlan",
@@ -87,7 +89,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mandaplan.app";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://mandaplan.vercel.app";
 
   const structuredData = {
     "@context": "https://schema.org",
